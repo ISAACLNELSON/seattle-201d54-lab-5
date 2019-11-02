@@ -9,11 +9,17 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
+    var arr = [];
+    var answer = a + b;
+    arr[0] = answer;
+    arr[1] = `The sum of ${a} and ${b} is ${answer}.`
 
+
+    return arr;
 }
 
 // Here is the test for sum(); uncomment it to run it
-// testSum(4, 7);
+testSum(4, 7);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -27,11 +33,15 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-
+    var arr = [];
+    var product = a * b;
+    arr[0] = product;
+    arr[1] = `The product of ${a} and ${b} is ${product}.`
+    return arr;
 }
 
 // Here is the test for multiply(); uncomment it to run it
-// testMultiply(5,9);
+testMultiply(5, 9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -48,11 +58,27 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+    var arr = [];
+    var sum1 = sum(a, b);
+    sum1 = sum1[0];
+    var sum2 = sum(sum1, c);
+    sum2 = sum2[0];
+    arr[0] = sum2;
 
+    var product1 = multiply(a, b);
+    product1 = product1[0];
+    var product2 = multiply(product1, c);
+    product2 = product2[0];
+    arr[1] = product2
+
+    arr[2] = `${a} and ${b} and ${c} sum to ${sum2}.`
+    arr[3] = `The product of ${a} and ${b} and ${c} is ${product2}.`
+
+    return arr;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4, 7, 5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -70,12 +96,26 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+    var arr = [];
+    for (var i = 0; i < sumArr.length; i++) {
+        arr.push(sumArr[i])
+    }
+    var answer = sum(arr[0], arr[1]);
+    answer = answer[0];
+    var answer2 = sum(answer, arr[2]);
+    answer2 = answer2[0];
+    arr[0] = answer2;
 
+    arr[1] = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${answer2} is their sum.`
+
+
+
+    return arr;
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+ testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -116,7 +156,7 @@ This function should be dynamic, accepting an array of any length.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
 // Write your code here
-var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
+var testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
