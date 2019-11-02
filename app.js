@@ -115,7 +115,7 @@ function sumArray(sumArr) { //eslint-disable-line
 
 // Here is the test for sumArray(); uncomment it to run it
 
- //testSumArray(testArray);
+ testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -131,11 +131,22 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
+var arr = [];
+var numArr = [];
+for (var i = 0; i < multArr.length; i++){
+numArr.push(multArr[i]);
+}
+var product1 = multiply(numArr[0], numArr[1]);
+var product2 = multiply(product1[0], numArr[2]);
+arr[0] = product2[0];
+arr[1] = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${product2[0]}.`
 
+
+return arr;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+ testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
