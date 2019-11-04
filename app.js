@@ -74,7 +74,7 @@ function sumAndMultiply(a, b, c) { //eslint-disable-line
     arr[2] = `${a} and ${b} and ${c} sum to ${sum2}.`
     arr[3] = `The product of ${a} and ${b} and ${c} is ${product2}.`
 
-    return arr; 
+    return arr;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -115,7 +115,7 @@ function sumArray(sumArr) { //eslint-disable-line
 
 // Here is the test for sumArray(); uncomment it to run it
 
- testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -131,22 +131,19 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-var arr = [];
-var numArr = [];
-for (var i = 0; i < multArr.length; i++){
-numArr.push(multArr[i]);
-}
-var product1 = multiply(numArr[0], numArr[1]);
-var product2 = multiply(product1[0], numArr[2]);
-arr[0] = product2[0];
-arr[1] = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${product2[0]}.`
+    var arr = [];
+
+    var product1 = multiply(multArr[0], multArr[1]);
+    var product2 = multiply(product1[0], multArr[2]);
+    arr[0] = product2[0];
+    arr[1] = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${product2[0]}.`
 
 
-return arr;
+    return arr;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
- testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
@@ -168,18 +165,22 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 var testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
-
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-var arr = [];
-var numArr = [];
- // iterate over dynArr and multiply numArr[0][0] and dynArr[i] while setting the product to numArr[0][0]...
- for(var i = 0; i < dynamicArray.length; i++){
-numArr[0][0] = multiply(numArr[0][0], dynamicArray[i]);
- }
-return arr;
+    var arr = [];
+    var currentNum = 1;
+
+    for (var i = 0; i < dynamicArray.length; i++) {
+        arr[0] = multiply(currentNum, dynamicArray[i])
+        currentNum = arr[0][0];
+        arr[0] = arr[0][0];
+    }
+    arr[1] = `The numbers ${dynamicArray[0]},${dynamicArray[1]},${dynamicArray[2]},${dynamicArray[3]},${dynamicArray[4]} have a product of ${arr[0]}.`
+
+
+    return arr;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
